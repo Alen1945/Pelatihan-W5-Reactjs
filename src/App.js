@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class Score extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      scoreNow:0
+    }
+    this.minus=this.minus.bind(this)
+  }
+  minus(){
+    this.setState((prevState)=>({
+      scoreNow:prevState.scoreNow-1
+    }))
+  }
+  plus=()=>{
+    this.setState((prevState)=>({
+      scoreNow:prevState.scoreNow+1
+    }))
+  }
+  render(){
+    return (
+      <div style={{
+        display:'flex'
+        
+      }}>
+        <button 
+        onClick={this.minus}
+        style={{
+          marginRight:'10px',
+          width:'50px'
+        }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          -
+        </button>
+
+        <h1>{this.state.scoreNow}</h1>
+
+        <button 
+        onClick={this.plus}
+        style={{
+          marginLeft:'10px',
+          width:'50px'}}
+          >
+            +
+        </button>
+      </div>
+    )
+  }
+}
+
+class App extends Component{
+  render(){
+    return (
+      <div>
+        <Score/>
+      </div>
+    )
+  }
 }
 
 export default App;
