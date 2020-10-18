@@ -43,6 +43,7 @@ class Login extends Component{
                     password:''
                 }
             }))
+            this.props.updateLogin(true)
         } catch (error) {
             console.log(error.response)
         }
