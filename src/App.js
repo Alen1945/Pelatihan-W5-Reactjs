@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Login from './screens/Login/Login'
+import Category from './screens/Category/Category'
 import {Cookies} from 'react-cookie'
 const cookies=new Cookies()
 class App extends Component{
@@ -27,6 +28,7 @@ class App extends Component{
         {this.state.isLogin && (
           <div>
             <h1>Kamu sudah Login</h1>
+            <Category/>
           </div>
         )}
       </div>
